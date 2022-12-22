@@ -23,7 +23,7 @@ namespace Insulter
             {
                 Console.WriteLine("How many times would you like to be insulted?");
 
-                List<string> usedInsults = new List<string>();
+                List<int> usedInsults = new List<int>();
                  
                 string response = Console.ReadLine();
                 int numberOfInsults = int.Parse(response);
@@ -32,13 +32,11 @@ namespace Insulter
                     {
                         Random rnd = new Random();
                         int n  = rnd.Next(0, 7);
-                        string s = n.ToString();
-                        string usedInsultsString = string.Join("", usedInsults);
-
-                        if (!usedInsultsString.Contains(s)) 
+                        
+                        if (!usedInsults.Contains(n)) 
                         {
                             Console.WriteLine($"{insults[n]}");
-                            usedInsults.Add(s);
+                            usedInsults.Add(n);
                         }
                         else 
                         {
